@@ -19,14 +19,12 @@ done < make.txt
 
 
 # post telegram
-cd ./FILE
-
-for i in `ls`
+for i in `ls ./FILE`
 do
-DATE=`tail -n1 ./$i`
-CLI=`head -n1 ./$i|sed -e 's/,/ \\\\n /g'`
+DATE=`tail -n1 ./FILE/$i`
+CLI=`head -n1 ./FILE/$i|sed -e 's/,/ \\\\n /g'`
 
-TXT=`cat ./$i | sed -e '1d' -e '$d' -e 's/$/ \\\\n/'`
+TXT=`cat ./FILE/$i | sed -e '1d' -e '$d' -e 's/$/ \\\\n/'`
 
 DSC="
 当日確認です。 \\n
