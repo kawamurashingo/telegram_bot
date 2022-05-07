@@ -8,8 +8,8 @@ Retrieve Google Calendar appointments and notify Telegram groups
 # Installation
 ```
 sudo yum -y update
-sudo yum -y install git
 sudo yum -y install epel-release
+sudo yum -y install git
 sudo yum -y install jq
 sudo yum -y install langpacks-ja
 sudo localectl set-locale LANG=ja_JP.UTF-8
