@@ -13,10 +13,10 @@ pip install google-api-python-client google-auth
 # Preparation
 1. Create Google Cloud Platform account
 2. Enable Google Calendar API
-3. Create service account
-4. Create service account key (type json)
-5. Add service account in google calender
-6. Create telegram bot account
+3. Create Service account
+4. Create Service account key (type json)
+5. Add Service account in google calender
+6. Create Telegram bot account
 
 # Usage
 ```
