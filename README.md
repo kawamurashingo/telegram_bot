@@ -1,5 +1,5 @@
-# Google calender notification to Telegram
-google calender schedule remind
+# Google Calender Notification to Telegram
+Retrieve Google Calendar appointments and notify Telegram groups
 
 # Requirement
 * Rocky Linux 8
