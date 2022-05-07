@@ -7,8 +7,6 @@ google calender schedule remind
 
 # Installation
 ```
-yum install git
-
 pip3 install google-api-python-client google-auth
 yum install jq
 ```
