@@ -15,7 +15,7 @@ sudo yum install langpacks-ja
 sudo localectl set-locale LANG=ja_JP.UTF-8
 sudo pip3 install google-api-python-client google-auth
 sudo timedatectl set-timezone Asia/Tokyo
-git clone https://github.com/kawamurashingo/telegram_bot.git
+sudo reboot
 ```
 
 # Preparation
@@ -29,6 +29,9 @@ git clone https://github.com/kawamurashingo/telegram_bot.git
 
 # Usage
 ```
+# git clone
+git clone https://github.com/kawamurashingo/telegram_bot.git
+
 # get telegram group id
 BOT_ID="XXXXXXX"
 curl -s -X GET https://api.telegram.org/bot${BOT_ID}/getUpdates | jq -r '.result[] | .message.chat.id, .message.chat.title'
