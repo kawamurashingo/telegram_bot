@@ -2,7 +2,7 @@
 google calender schedule remind
 
 # Requirement
-* CentOS > 8
+* Rocky Linux > 8
 * Python > 3.7
 
 # Installation
