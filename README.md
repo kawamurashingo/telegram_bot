@@ -42,6 +42,9 @@ vi get_events.py
 # edit credentials.json
 vi credentials.json
 
+# edit env of BOT_ID
+vi ./telegram.sh
+
 # run
 sh ./telegram.sh
 ```
