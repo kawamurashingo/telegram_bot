@@ -1,5 +1,5 @@
 #!/bin/bash
-BOT_ID=XXXXXXXX
+BOT_ID="XXXXXXXX"
 
 # get google calender schedule
 python3 get_events.py | sed -e 's:<html-blob>::g' -e 's:</html-blob>::g' -e "s:<br>:\n:g" > schedule.txt
