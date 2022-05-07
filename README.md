@@ -11,7 +11,7 @@ pip install google-api-python-client google-auth
 ```
 
 # Preparation
-1. Create Google Cloud Platform account
+1. Create Google Cloud Platform Account
 2. Enable Google Calendar API
 3. Create Service account
 4. Create Service account key (type json)
