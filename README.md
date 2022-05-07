@@ -6,7 +6,7 @@ google calender schedule remind
 * Python > 3.6
 
 # Installation
-```bash
+```
 pip install google-api-python-client google-auth
 ```
 
@@ -17,6 +17,7 @@ pip install google-api-python-client google-auth
 4. Create service account key (type json)
 5. Add service account in google calender
 
-# Preparation
-```sh ./telegram.sh
+# Usage
+```
+sh ./telegram.sh
 ```
