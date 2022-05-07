@@ -21,3 +21,7 @@ pip install google-api-python-client google-auth
 ```
 sh ./telegram.sh
 ```
+
+# Note
+reference page
+https://zuqqhi2.com/how-to-get-my-plans-using-google-calendar-api
