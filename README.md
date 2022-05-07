@@ -48,10 +48,11 @@ sh ./telegram.sh
 
 # Note
 how to use google api 
-https://zuqqhi2.com/how-to-get-my-plans-using-google-calendar-api
+ - <https://zuqqhi2.com/how-to-get-my-plans-using-google-calendar-api>
 
 how to create telegram bot account
-https://www.youtube.com/watch?v=NwBWW8cNCP4
+ - <https://www.youtube.com/watch?v=NwBWW8cNCP4>
+ - <https://yuis-programming.com/?p=1241>
 
 how to get group chat id
-https://stackoverflow.com/questions/32423837/telegram-bot-how-to-get-a-group-chat-id
+ - <https://stackoverflow.com/questions/32423837/telegram-bot-how-to-get-a-group-chat-id>
