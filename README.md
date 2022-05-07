@@ -2,11 +2,12 @@
 google calender schedule remind
 
 # Requirement
-* Rocky Linux > 8
+* Rocky Linux 8
 * Python > 3.7
 
 # Installation
 ```
+sudo yum update
 sudo yum install git
 sudo yum install python3
 sudo pip3 install google-api-python-client google-auth
