@@ -20,7 +20,7 @@ pip install google-api-python-client google-auth
 
 # Usage
 ```
-# get telegram id
+# get telegram bot id
 curl -X GET https://api.telegram.org/botXXXXX:XXXXXXXXX/getMe
 
 # edit member and client file
