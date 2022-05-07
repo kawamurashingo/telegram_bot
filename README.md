@@ -1,4 +1,4 @@
-# Google calender notification to telegram
+# Google calender notification to Telegram
 google calender schedule remind
 
 # Requirement
