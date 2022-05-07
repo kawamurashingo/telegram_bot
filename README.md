@@ -7,8 +7,10 @@ google calender schedule remind
 
 # Installation
 ```
-pip3 install google-api-python-client google-auth
-yum install jq
+sudo yum install git
+sudo pip3 install google-api-python-client google-auth
+sudo yum install jq
+git clone https://github.com/kawamurashingo/telegram_bot.git
 ```
 
 # Preparation
