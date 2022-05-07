@@ -14,6 +14,7 @@ sudo yum install jq
 sudo yum install langpacks-ja
 sudo localectl set-locale LANG=ja_JP.UTF-8
 sudo pip3 install google-api-python-client google-auth
+sudo timedatectl set-timezone Asia/Tokyo
 git clone https://github.com/kawamurashingo/telegram_bot.git
 ```
 
