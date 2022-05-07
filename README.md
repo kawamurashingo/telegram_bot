@@ -30,7 +30,7 @@ git clone https://github.com/kawamurashingo/telegram_bot.git
 ```
 # get telegram group id
 BOT_ID="XXXXXXX"
-curl -s -X GET https://api.telegram.org/bot${BOT_ID} | jq -r '.result[] | .message.chat.id, .message.chat.title'
+curl -s -X GET https://api.telegram.org/bot${BOT_ID}/getUpdates | jq -r '.result[] | .message.chat.id, .message.chat.title'
 
 # edit member and client file
 cd ./telegram_bot
