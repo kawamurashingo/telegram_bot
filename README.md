@@ -7,7 +7,8 @@ google calender schedule remind
 
 # Installation
 ```
-pip install google-api-python-client google-auth
+pip3 install google-api-python-client google-auth
+yum install jq
 ```
 
 # Preparation
@@ -17,11 +18,12 @@ pip install google-api-python-client google-auth
 4. Create Service account key (type json)
 5. Add Service account in google calender
 6. Create Telegram bot account
+7. Create Telegram group
 
 # Usage
 ```
-# get telegram bot id
-curl -X GET https://api.telegram.org/botXXXXX:XXXXXXXXX/getMe
+# get telegram group id
+curl -s -X GET https://api.telegram.org/botXXXXXXX:YYYYY/getUpdates |jq .result[].message.chat.id
 
 # edit member and client file
 vi member
