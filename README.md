@@ -36,3 +36,4 @@ how to use google api
 https://zuqqhi2.com/how-to-get-my-plans-using-google-calendar-api
 
 how to create telegram bot account
+https://www.youtube.com/watch?v=NwBWW8cNCP4
