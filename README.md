@@ -7,11 +7,11 @@ Retrieve Google Calendar appointments and notify Telegram groups
 
 # Installation
 ```
-sudo yum -y update
-sudo yum -y install epel-release
-sudo yum -y install git
-sudo yum -y install jq
-sudo yum -y install langpacks-ja
+sudo yum update
+sudo yum install epel-release
+sudo yum install git
+sudo yum install jq
+sudo yum install langpacks-ja
 sudo localectl set-locale LANG=ja_JP.UTF-8
 sudo pip3 install google-api-python-client google-auth
 git clone https://github.com/kawamurashingo/telegram_bot.git
