@@ -48,6 +48,7 @@ vi credentials.json
 vi ./telegram.sh
 
 # run
+chmod 755 ./telegram.sh
 sh ./telegram.sh
 ```
 
