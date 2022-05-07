@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # get google calender schedule
-python3.7 get_events.py | sed -e 's:<html-blob>::g' -e 's:</html-blob>::g' -e "s:<br>:\n:g" > schedule.txt
+python3 get_events.py | sed -e 's:<html-blob>::g' -e 's:</html-blob>::g' -e "s:<br>:\n:g" > schedule.txt
 
 # make text
 sed -e "s/DATE/`date +%Y-%m-%d`/" reverse.sed > make_reverse.sed
