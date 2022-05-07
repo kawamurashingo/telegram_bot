@@ -1,4 +1,5 @@
 #!/bin/bash
+BOT_ID=XXXXXXXX
 
 # get google calender schedule
 python3 get_events.py | sed -e 's:<html-blob>::g' -e 's:</html-blob>::g' -e "s:<br>:\n:g" > schedule.txt
@@ -37,7 +38,7 @@ $CLI \\n
 "
 
 echo $i
-curl -s  -H 'Accept: application/json' -H "Content-type: application/json" -X POST "https://api.telegram.org/bot5345777582:AAHE8sX_XDgsSXZw3myJH8FmJifOz2Sk8jM/sendMessage?chat_id=$i" -k -d @- <<EOF
+curl -s  -H 'Accept: application/json' -H "Content-type: application/json" -X POST "https://api.telegram.org/bot${BOT_ID}/sendMessage?chat_id=$i" -k -d @- <<EOF
 {
     "text": "${DSC}"
 }
