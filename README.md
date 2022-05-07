@@ -8,8 +8,12 @@ google calender schedule remind
 # Installation
 ```
 sudo yum install git
+sudo yum install python3
 sudo pip3 install google-api-python-client google-auth
+sudo yum install epel-release
 sudo yum install jq
+sudo yum install langpacks-ja 
+sudo localectl set-locale LANG=ja_JP.UTF-8 
 git clone https://github.com/kawamurashingo/telegram_bot.git
 ```
 
