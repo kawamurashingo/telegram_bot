@@ -2,8 +2,8 @@
 google calender schedule remind
 
 # Requirement
-* CentOS > 7
-* Python > 3.6
+* CentOS > 8
+* Python > 3.7
 
 # Installation
 ```
@@ -12,8 +12,9 @@ sudo yum install python3
 sudo pip3 install google-api-python-client google-auth
 sudo yum install epel-release
 sudo yum install jq
-#sudo yum -y install ibus-kkc vlgothic-* 
-#sudo localectl set-locale LANG=ja_JP.UTF-8
+sudo yum install langpacks-ja
+sudo localectl set-locale LANG=ja_JP.UTF-8
+sudo source /etc/locale.conf
 git clone https://github.com/kawamurashingo/telegram_bot.git
 ```
 
