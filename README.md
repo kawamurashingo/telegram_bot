@@ -9,13 +9,11 @@ google calender schedule remind
 ```
 sudo yum update
 sudo yum install git
-sudo yum install python3
 sudo pip3 install google-api-python-client google-auth
 sudo yum install epel-release
 sudo yum install jq
 sudo yum install langpacks-ja
 sudo localectl set-locale LANG=ja_JP.UTF-8
-sudo source /etc/locale.conf
 git clone https://github.com/kawamurashingo/telegram_bot.git
 ```
 
@@ -34,8 +32,15 @@ git clone https://github.com/kawamurashingo/telegram_bot.git
 curl -s -X GET https://api.telegram.org/botXXXXXXX:YYYYY/getUpdates |jq .result[].message.chat.id
 
 # edit member and client file
+cd telegram_bot
 vi member
 vi client
+
+# edit calendar_id in get_events.py
+vi get_events.py
+
+# edit credentials.json
+vi credentials.json
 
 # run
 sh ./telegram.sh
