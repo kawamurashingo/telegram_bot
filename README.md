@@ -32,7 +32,7 @@ git clone https://github.com/kawamurashingo/telegram_bot.git
 curl -s -X GET https://api.telegram.org/botXXXXXXX:YYYYY | jq -r '.result[] | .message.chat.id, .message.chat.title'
 
 # edit member and client file
-cd telegram_bot
+cd ./telegram_bot
 vi member
 vi client
 
