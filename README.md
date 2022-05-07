@@ -3,7 +3,7 @@ google calender schedule remind
 
 # Requirement
 * Rocky Linux 8
-* Python > 3.7
+* Python > 3.6.8
 
 # Installation
 ```
