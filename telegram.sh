@@ -12,7 +12,7 @@ test -d ./FILE || mkdir ./FILE
 
 while read line
 do
-echo $line  |grep -q Title && ID=`grep "\`echo $line |awk -F'　' '{print $1}' |sed -e "s/Title://"\`" employee |awk -F',' '{print $2}'`
+echo $line  |grep -q Title && ID=`grep "\`echo $line |awk -F'　' '{print $1}' |sed -e "s/Title://"\`" member |awk -F',' '{print $2}'`
 echo $line  |grep -q Title && grep "`echo $line |awk -F'　' '{print $2}'`" client >> ./FILE/$ID
 echo $line  |grep -q Title || echo $line >> ./FILE/$ID
 done < make.txt
