@@ -41,7 +41,7 @@ cd ./telegram_bot
 vi member
 vi client
 
-# edit calendar_id in get_events.py
+# edit calendar_id and credentials.json path in get_events.py
 vi get_events.py
 
 # edit credentials.json
