@@ -12,8 +12,8 @@ sudo yum install epel-release
 sudo yum install git
 sudo yum install jq
 sudo yum install langpacks-ja
-sudo localectl set-locale LANG=ja_JP.UTF-8
 sudo pip3 install google-api-python-client google-auth
+sudo localectl set-locale LANG=ja_JP.UTF-8
 sudo timedatectl set-timezone Asia/Tokyo
 sudo reboot
 ```
