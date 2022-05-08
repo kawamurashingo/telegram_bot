@@ -1,11 +1,12 @@
 #!/bin/bash
 BOT_ID="XXXXXXXX"
+DIR=`dirname $0`
 
 # get google calender schedule
-python3 get_events.py | sed -e 's:<html-blob>::g' -e 's:</html-blob>::g' -e "s:<br>:\n:g" > schedule.txt
+python3 ${DIR}/get_events.py | sed -e 's:<html-blob>::g' -e 's:</html-blob>::g' -e "s:<br>:\n:g" > schedule.txt
 
 # make text
-sed -e "s/DATE/`date +%Y-%m-%d`/" reverse.sed > make_reverse.sed
+sed -e "s/DATE/`date +%Y-%m-%d`/" ${DIR}/reverse.sed > make_reverse.sed
 sed -n "/`date +%Y-%m-%d`/,/^$/p" schedule.txt  | sed -f make_reverse.sed | sed -e "s:`date +%Y-%m-%d`:`date +%m/%d`:" -e "s/~.*//" > make.txt
 
 # make file
@@ -13,8 +14,8 @@ test -d ./FILE || mkdir ./FILE
 
 while read line
 do
-echo $line  |grep -q Title && ID=`grep "\`echo $line |awk -F'　' '{print $1}' |sed -e "s/Title://"\`" member |awk -F',' '{print $2}'`
-echo $line  |grep -q Title && grep "`echo $line |awk -F'　' '{print $2}'`" client >> ./FILE/$ID
+echo $line  |grep -q Title && ID=`grep "\`echo $line |awk -F'　' '{print $1}' |sed -e "s/Title://"\`" ${DIR}/member |awk -F',' '{print $2}'`
+echo $line  |grep -q Title && grep "`echo $line |awk -F'　' '{print $2}'`" ${DIR}/client >> ./FILE/$ID
 echo $line  |grep -q Title || echo $line >> ./FILE/$ID
 done < make.txt
 
