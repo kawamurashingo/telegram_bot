@@ -43,8 +43,8 @@ https://api.telegram.org/bot######/getUpdates
 
 # edit {SHEET NAME} in spredsheet_client.py and  spredsheet_member.py 
 cd ./telegram_bot
-vi spredsheet_client.py
-vi spredsheet_member.py
+vi spreadsheet_client.py
+vi spreadsheet_member.py
 
 # edit calendar_id in get_events.py
 vi get_events.py
