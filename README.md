@@ -41,12 +41,12 @@ or blowser access
 https://api.telegram.org/bot######/getUpdates
 
 
-# edit  spredsheet_client.py and  spredsheet_member.py sheet name
+# edit sheet name in spredsheet_client.py and  spredsheet_member.py 
 cd ./telegram_bot
 vi spredsheet_client.py
 vi spredsheet_member.py
 
-# edit calendar_id and credentials.json path in get_events.py
+# edit calendar_id in get_events.py
 vi get_events.py
 
 # edit credentials.json
