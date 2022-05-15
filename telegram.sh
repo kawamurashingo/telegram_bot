@@ -17,10 +17,10 @@ test -f make.txt.`date +%Y%m%d` && diff make.txt make.txt.`date +%Y%m%d` |grep '
 test -d ./FILE || mkdir ./FILE
 
 # get client
-python3 spreadsheet_client.py |sed -e 's/],/\n/' -e 's/]//g' -e 's/\[//g' -e "s/'//g" -e "s/ //g" > client
+python3 ${DIR}/spreadsheet_client.py |sed -e 's/],/\n/' -e 's/]//g' -e 's/\[//g' -e "s/'//g" -e "s/ //g" > client
 
 # get member
-python3 spreadsheet_member.py |sed -e 's/],/\n/' -e 's/]//g' -e 's/\[//g' -e "s/'//g" -e "s/ //g" > member
+python3 ${DIR}/spreadsheet_member.py |sed -e 's/],/\n/' -e 's/]//g' -e 's/\[//g' -e "s/'//g" -e "s/ //g" > member
 
 while read line
 do
