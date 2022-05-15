@@ -8,7 +8,7 @@ client = gspread.authorize(creds)
 
 # Find a workbook by name and open the first sheet
 # Make sure you use the right name here.
-sheet = client.open("{シートのファイル名}").sheet1
+sheet = client.open("{SHEET NAME}").sheet1
 
 # Extract and print all of the values
 list_of_hashes = sheet.get_all_values()
