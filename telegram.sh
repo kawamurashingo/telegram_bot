@@ -66,4 +66,6 @@ cp -f make.txt make.txt.`date +%Y%m%d`
 
 test -f make.txt.`date +%Y%m%d -d'1 day ago'` && rm -f make.txt.`date +%Y%m%d -d'1 day ago'`
 
+rm -f ${DIR}/{SHEET NAME}
+
 exit 0
