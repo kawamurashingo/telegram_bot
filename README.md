@@ -41,10 +41,10 @@ or blowser access
 https://api.telegram.org/bot######/getUpdates
 
 
-# edit member and client file
+# edit  spredsheet_client.py and  spredsheet_member.py sheet name
 cd ./telegram_bot
-vi member
-vi client
+vi spredsheet_client.py
+vi spredsheet_member.py
 
 # edit calendar_id and credentials.json path in get_events.py
 vi get_events.py
@@ -70,3 +70,6 @@ how to create telegram bot account
 
 how to get group chat id
  - <https://stackoverflow.com/questions/32423837/telegram-bot-how-to-get-a-group-chat-id>
+
+how to edit google sheets
+https://www.twilio.com/blog/an-easy-way-to-read-and-write-to-a-google-spreadsheet-in-python-jp
