@@ -4,12 +4,12 @@ import google.auth
 import os
 
 # get path
-folder = os.getcwd()
+dir_path = os.path.dirname(os.path.abspath(__file__))
 
 # Preparation for Google API
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 calendar_id = 'XXXXXXXX@gmail.com'
-gapi_creds = google.auth.load_credentials_from_file(folder + '/credentials.json', SCOPES)[0]
+gapi_creds = google.auth.load_credentials_from_file(dir_path + '/credentials.json', SCOPES)[0]
 service = googleapiclient.discovery.build('calendar', 'v3', credentials=gapi_creds)
  
 # Get events from Google Calendar API
