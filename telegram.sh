@@ -16,6 +16,12 @@ test -f make.txt.`date +%Y%m%d` && diff make.txt make.txt.`date +%Y%m%d` |grep '
 # make file
 test -d ./FILE || mkdir ./FILE
 
+# get client
+python3 spreadsheet_client.py |sed -e 's/],/\n/' -e 's/]//g' -e 's/\[//g' -e "s/'//g" -e "s/ //g" > client
+
+# get member
+python3 spreadsheet_member.py |sed -e 's/],/\n/' -e 's/]//g' -e 's/\[//g' -e "s/'//g" -e "s/ //g" > member
+
 while read line
 do
 echo $line  |grep -q Title && ID=`grep "\`echo $line |awk -F'　' '{print $1}' |sed -e "s/Title://"\`" ${DIR}/member |awk -F',' '{print $2}'`
