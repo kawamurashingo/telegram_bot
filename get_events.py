@@ -1,11 +1,15 @@
 import datetime, re
 import googleapiclient.discovery
 import google.auth
- 
+import os
+
+# get path
+folder = os.getcwd()
+
 # Preparation for Google API
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 calendar_id = 'XXXXXXXX@gmail.com'
-gapi_creds = google.auth.load_credentials_from_file('credentials.json', SCOPES)[0]
+gapi_creds = google.auth.load_credentials_from_file(folder + '/credentials.json', SCOPES)[0]
 service = googleapiclient.discovery.build('calendar', 'v3', credentials=gapi_creds)
  
 # Get events from Google Calendar API
