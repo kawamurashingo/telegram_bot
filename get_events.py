@@ -12,7 +12,7 @@ service = googleapiclient.discovery.build('calendar', 'v3', credentials=gapi_cre
 now = datetime.datetime.utcnow().isoformat() + 'Z'
 events_result = service.events().list(
      calendarId=calendar_id, timeMin=now,
-     maxResults=50, singleEvents=True,
+     maxResults=100, singleEvents=True,
      orderBy='startTime').execute()
  
 # Pick up only start time, end time and summary info
