@@ -10,8 +10,8 @@ sed -e "s/DATE/`date +%Y-%m-%d`/" ${DIR}/reverse.sed > make_reverse.sed
 sed -n "/`date +%Y-%m-%d`/,/^$/p" schedule.txt  | sed -f make_reverse.sed | sed -e "s:`date +%Y-%m-%d`:`date +%m/%d`:" -e "s/~.*//" > make.txt
 
 cp -f make.txt make2.txt
-test -f make.txt.bk && diff make.txt make.txt.bk && exit 1
-test -f make.txt.bk && diff make.txt make.txt.bk |grep '<' |sed -e 's/< //g' > make2.txt  
+test -f make.txt.`date +%Y%m%d` && diff make.txt make.txt.`date +%Y%m%d` && exit 1
+test -f make.txt.`date +%Y%m%d` && diff make.txt make.txt.`date +%Y%m%d` |grep '<' |sed -e 's/< //g' > make2.txt  
 
 # make file
 test -d ./FILE || mkdir ./FILE
@@ -56,6 +56,8 @@ done
 
 rm -f ./FILE/*
 
-cp -f make.txt make.txt.bk
+cp -f make.txt make.txt.`date +%Y%m%d`
+
+test -f make.txt.`date +%Y%m%d -d'1 day ago'` && rm -f make.txt.`date +%Y%m%d -d'1 day ago'`
 
 exit 0
