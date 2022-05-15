@@ -36,6 +36,11 @@ git clone https://github.com/kawamurashingo/telegram_bot.git
 BOT_ID="XXXXXXX"
 curl -s -X GET https://api.telegram.org/bot${BOT_ID}/getUpdates | jq -r '.result[] | .message.chat.id, .message.chat.title'
 
+or blowser access
+
+https://api.telegram.org/bot######/getUpdates
+
+
 # edit member and client file
 cd ./telegram_bot
 vi member
