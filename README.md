@@ -23,7 +23,7 @@ sudo reboot
 2. Enable Google Calendar Drive and Sheets API
 3. Create Service account
 4. Create Service account key (type json)
-5. Add Service account in google calender
+5. Add Service account in google calender and sheet
 6. Create Telegram bot account
 7. Create Telegram group
 
