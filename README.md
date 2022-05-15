@@ -37,7 +37,7 @@ BOT_ID="XXXXXXX"
 curl -s -X GET https://api.telegram.org/bot${BOT_ID}/getUpdates | jq -r '.result[] | .message.chat.id, .message.chat.title'
 
 or blowser access
-
+#add addon json formatter https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa/related
 https://api.telegram.org/bot######/getUpdates
 
 
