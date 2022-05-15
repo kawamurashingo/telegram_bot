@@ -46,7 +46,7 @@ cd ./telegram_bot
 vi spreadsheet_client.py
 vi spreadsheet_member.py
 
-# edit calendar_id in get_events.py
+# edit calendar_id(calendar account(mail address)) in get_events.py
 vi get_events.py
 
 # edit credentials.json
