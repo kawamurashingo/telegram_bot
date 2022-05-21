@@ -26,16 +26,19 @@ while read line
 do
 echo $line  |grep -q Title && ID=`grep "\`echo $line |awk -F'　' '{print $1}' |sed -e "s/Title://"\`" ${DIR}/member |awk -F',' '{print $2}'`
 echo $line  |grep -q Title && MEN=`grep "\`echo $line |awk -F'　' '{print $1}' |sed -e "s/Title://"\`" ${DIR}/member |awk -F',' '{print $1}'`
-echo $line  |grep -q Title && grep "`echo $line |awk -F'　' '{print $2}'`" ${DIR}/client >> ./FILE/$ID
-echo $line  |grep -q Title || echo $line >> ./FILE/$ID
+echo $line  |grep -q Title && grep "`echo $line |awk -F'　' '{print $2}'`" ${DIR}/client >> ./FILE/${ID}_${MEM}
+echo $line  |grep -q Title || echo $line >> ./FILE/${ID}_${MEM}
+
 done < make2.txt
 
 
 # post telegram
 for i in `ls ./FILE`
 do
+ID=`echo $i |awk -F'_' '{print $1}'`
+MEM=`echo $i |awk -F'_' '{print $2}'`
+
 DATE=`tail -n1 ./FILE/$i`
-#CLI=`head -n1 ./FILE/$i|sed -e 's/,/ \\\\n /g'`
 CLI=`head -n1 ./FILE/$i|awk -F',' '{print $1" 様  "$2"  "$3"\\\\n"$4}'`
 
 TXT=`cat ./FILE/$i | sed -e '1d' -e '$d' -e 's/$/ \\\\n/'`
