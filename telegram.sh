@@ -24,8 +24,8 @@ python3 ${DIR}/spreadsheet_member.py |sed -e 's/],/\n/g' -e 's/]//g' -e 's/\[//g
 
 while read line
 do
-echo $line  |grep -q Title && ID=`grep "\`echo $line |awk -F'　' '{print $1}' |sed -e "s/Title://"\`" ${DIR}/member |awk -F',' '{print $2}'`
-echo $line  |grep -q Title && MEN=`grep "\`echo $line |awk -F'　' '{print $1}' |sed -e "s/Title://"\`" ${DIR}/member |awk -F',' '{print $1}'`
+echo $line  |grep -q Title && export ID=`grep "\`echo $line |awk -F'　' '{print $1}' |sed -e "s/Title://"\`" ${DIR}/member |awk -F',' '{print $2}'`
+echo $line  |grep -q Title && export MEN=`grep "\`echo $line |awk -F'　' '{print $1}' |sed -e "s/Title://"\`" ${DIR}/member |awk -F',' '{print $1}'`
 echo $line  |grep -q Title && grep "`echo $line |awk -F'　' '{print $2}'`" ${DIR}/client >> ./FILE/${ID}_${MEM}
 echo $line  |grep -q Title || echo $line >> ./FILE/${ID}_${MEM}
 
