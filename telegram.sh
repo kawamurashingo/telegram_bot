@@ -1,32 +1,34 @@
 #!/bin/bash
-BOT_ID="XXXXXXXX"
+BOT_ID="XXXX:XXXX"
 DIR=`dirname $0`
 
+cd ${DIR}
+
 # get google calender schedule
-python3 ${DIR}/get_events.py | sed -e 's:<html-blob>::g' -e 's:</html-blob>::g' -e "s:<br>:\n:g" > schedule.txt
+python3 get_events.py | sed -e 's:<html-blob>::g' -e 's:</html-blob>::g' -e "s:<br>:\n:g" > schedule.txt
 
 # make text
-sed -e "s/DATE/`date +%Y-%m-%d`/" ${DIR}/reverse.sed > make_reverse.sed
+sed -e "s/DATE/`date +%Y-%m-%d`/" reverse.sed > make_reverse.sed
 sed -n "/`date +%Y-%m-%d`/,/^$/p" schedule.txt  | sed -f make_reverse.sed | sed -e "s:`date +%Y-%m-%d`:`date +%m/%d`:" -e "s/~.*//" > make.txt
 
 cp -f make.txt make2.txt
 test -f make.txt.`date +%Y%m%d` && diff make.txt make.txt.`date +%Y%m%d` && exit 1
-test -f make.txt.`date +%Y%m%d` && diff make.txt make.txt.`date +%Y%m%d` |grep '<' |sed -e 's/< //g' > make2.txt  
+test -f make.txt.`date +%Y%m%d` && diff make.txt make.txt.`date +%Y%m%d` |grep '<' |sed -e 's/< //g' > make2.txt
 
 # make file
 test -d ./FILE || mkdir ./FILE
 
 # get client
-python3 ${DIR}/spreadsheet_client.py |sed -e 's/],/\n/g' -e 's/]//g' -e 's/\[//g' -e "s/'//g" -e "s/ //g" > client
+python3 spreadsheet_client.py |sed -e 's/],/\n/g' -e 's/]//g' -e 's/\[//g' -e "s/'//g" -e "s/ //g" > client
 
 # get member
-python3 ${DIR}/spreadsheet_member.py |sed -e 's/],/\n/g' -e 's/]//g' -e 's/\[//g' -e "s/'//g" -e "s/ //g" > member
+python3 spreadsheet_member.py |sed -e 's/],/\n/g' -e 's/]//g' -e 's/\[//g' -e "s/'//g" -e "s/ //g" > member
 
 while read line
 do
-echo $line  |grep -q Title && export ID=`grep "\`echo $line |awk -F'　' '{print $1}' |sed -e "s/Title://"\`" ${DIR}/member |awk -F',' '{print $2}'`
-echo $line  |grep -q Title && export MEN=`grep "\`echo $line |awk -F'　' '{print $1}' |sed -e "s/Title://"\`" ${DIR}/member |awk -F',' '{print $1}'`
-echo $line  |grep -q Title && grep "`echo $line |awk -F'　' '{print $2}'`" ${DIR}/client >> ./FILE/${ID}_${MEM}
+echo $line  |grep -q Title && export ID=`grep "\`echo $line |awk -F'　' '{print $1}' |sed -e "s/Title://"\`" member |awk -F',' '{print $2}'`
+echo $line  |grep -q Title && export MEM=`grep "\`echo $line |awk -F'　' '{print $1}' |sed -e "s/Title://"\`" member |awk -F',' '{print $1}'`
+echo $line  |grep -q Title && grep "`echo $line |awk -F'　' '{print $2}'`" client >> ./FILE/${ID}_${MEM}
 echo $line  |grep -q Title || echo $line >> ./FILE/${ID}_${MEM}
 
 done < make2.txt
@@ -71,6 +73,7 @@ cp -f make.txt make.txt.`date +%Y%m%d`
 
 test -f make.txt.`date +%Y%m%d -d'1 day ago'` && rm -f make.txt.`date +%Y%m%d -d'1 day ago'`
 
-rm -f ${DIR}/{SHEET NAME}
+rm -f ./client
+rm -f ./member
 
 exit 0
