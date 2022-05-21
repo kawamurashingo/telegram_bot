@@ -36,7 +36,7 @@ for i in `ls ./FILE`
 do
 DATE=`tail -n1 ./FILE/$i`
 #CLI=`head -n1 ./FILE/$i|sed -e 's/,/ \\\\n /g'`
-CLI=`head -n1 ./FILE/$i|awk -F',' '{print $1" "$2" "$3"\\\\n"$4}'`
+CLI=`head -n1 ./FILE/$i|awk -F',' '{print $1" 様 "$2" "$3"\\\\n"$4}'`
 
 TXT=`cat ./FILE/$i | sed -e '1d' -e '$d' -e 's/$/ \\\\n/'`
 
