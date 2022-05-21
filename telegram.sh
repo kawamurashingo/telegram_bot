@@ -1,5 +1,6 @@
 #!/bin/bash
 BOT_ID="XXXX:XXXX"
+
 DIR=`dirname $0`
 
 cd ${DIR}
@@ -26,17 +27,19 @@ python3 spreadsheet_member.py |sed -e 's/],/\n/g' -e 's/]//g' -e 's/\[//g' -e "s
 
 while read line
 do
-echo $line  |grep -q Title && export ID=`grep "\`echo $line |awk -F'　' '{print $1}' |sed -e "s/Title://"\`" member |awk -F',' '{print $2}'`
-echo $line  |grep -q Title && export MEM=`grep "\`echo $line |awk -F'　' '{print $1}' |sed -e "s/Title://"\`" member |awk -F',' '{print $1}'`
-echo $line  |grep -q Title && grep "`echo $line |awk -F'　' '{print $2}'`" client >> ./FILE/${ID}_${MEM}
-echo $line  |grep -q Title || echo $line >> ./FILE/${ID}_${MEM}
+echo $line  |grep -q Title && ID=`grep "\`echo $line |awk -F'　' '{print $1}' |sed -e "s/Title://"\`" member |awk -F',' '{print $2}'`
+echo $line  |grep -q Title && MEM=`grep "\`echo $line |awk -F'　' '{print $1}' |sed -e "s/Title://"\`" member |awk -F',' '{print $1}'`
+echo $line  |grep -q Title && CANCEL=`echo $line |awk -F'　' '{print $3}'`
+echo $line  |grep -q Title && grep "`echo $line |awk -F'　' '{print $2}'`" client >> ./FILE/${ID}_${MEM}_${CANCEL}
+echo $line  |grep -q Title || echo $line >> ./FILE/${ID}_${MEM}_${CANCEL}
 
 done < make2.txt
 
 
 # post telegram
-for i in `ls ./FILE`
+for i in `ls ./FILE |grep -v "キャンセル"`
 do
+
 ID=`echo $i |awk -F'_' '{print $1}'`
 MEM=`echo $i |awk -F'_' '{print $2}'`
 
@@ -57,7 +60,7 @@ $CLI \\n
 "
 
 echo $i
-curl -s  -H 'Accept: application/json' -H "Content-type: application/json" -X POST "https://api.telegram.org/bot${BOT_ID}/sendMessage?chat_id=$i" -k -d @- <<EOF
+curl -s  -H 'Accept: application/json' -H "Content-type: application/json" -X POST "https://api.telegram.org/bot${BOT_ID}/sendMessage?chat_id=${ID}" -k -d @- <<EOF
 {
     "text": "${DSC}"
 }
