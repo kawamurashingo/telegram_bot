@@ -58,6 +58,10 @@ vi ./telegram.sh
 # run
 chmod 755 ./telegram.sh
 sh ./telegram.sh
+
+# set cron
+*/10 8-23 * * * sh /home/xxxx/telegram_bot/telegram.sh
+
 ```
 
 # Note
