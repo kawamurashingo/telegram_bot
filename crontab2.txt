@@ -1,1 +1,0 @@
-* * * * ps -ef |grep /usr/sbin/crond |grep -v grep || /usr/sbin/crond
