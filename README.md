@@ -29,6 +29,9 @@ sudo reboot
 
 # Usage
 ```
+# docker
+docker run -i -t pannakoota/rockylinux /bin/bash
+
 # git clone
 git clone https://github.com/kawamurashingo/telegram_bot.git
 
