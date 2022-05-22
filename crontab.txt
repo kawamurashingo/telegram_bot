@@ -1,2 +1,2 @@
 */10 8-23 * * * /telegram_bot/telegram.sh
-* * * * ps -ef |grep /usr/sbin/crond |grep -v grep || /usr/sbin/crond
+* * * * * ps -ef |grep /usr/sbin/crond |grep -v grep || /usr/sbin/crond
