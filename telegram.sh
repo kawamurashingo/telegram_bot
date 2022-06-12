@@ -44,7 +44,7 @@ ID=`echo $i |awk -F'_' '{print $1}'`
 MEM=`echo $i |awk -F'_' '{print $2}'`
 
 DATE=`tail -n1 ./FILE/$i`
-CLI=`head -n1 ./FILE/$i|awk -F',' '{print $1" 様  "$2"  "$3"\\\\n"$4}'`
+CLI=`head -n1 ./FILE/$i|awk -F',' '{print $2" 様  "$3"  "$4"\\\\n"$5}'`
 
 TXT=`cat ./FILE/$i | sed -e '1d' -e '$d' -e 's/$/ \\\\n/'`
 
