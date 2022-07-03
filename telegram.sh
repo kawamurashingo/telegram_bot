@@ -29,15 +29,15 @@ while read line
 do
 echo $line  |grep -q Title && ID=`grep "\`echo $line |awk -F'　' '{print $1}' |sed -e "s/Title://"\`" member |awk -F',' '{print $2}'`
 echo $line  |grep -q Title && MEM=`grep "\`echo $line |awk -F'　' '{print $1}' |sed -e "s/Title://"\`" member |awk -F',' '{print $1}'`
-echo $line  |grep -q Title && CANCEL=`echo $line |awk -F'　' '{print $3}'`
-echo $line  |grep -q Title && grep "`echo $line |awk -F'　' '{print $2}'`" client >> ./FILE/${ID}_${MEM}_${CANCEL}
-echo $line  |grep -q Title || echo $line >> ./FILE/${ID}_${MEM}_${CANCEL}
+echo $line  |grep -q Title && FILE_NAME=`echo $line |sed -e "s/Title://" -e "s/　/_/g"`
+echo $line  |grep -q Title && grep "`echo $line |awk -F'　' '{print $2}'`" client >> ./FILE/${ID}_${FILE_NAME}
+echo $line  |grep -q Title || echo $line >> ./FILE/${ID}_${FILE_NAME}
 
 done < make2.txt
 
 
 # post telegram
-for i in `ls ./FILE |grep -v "キャンセル"`
+for i in `ls -tr ./FILE |grep -v "キャンセル"`
 do
 
 ID=`echo $i |awk -F'_' '{print $1}'`
