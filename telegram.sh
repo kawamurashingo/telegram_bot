@@ -36,6 +36,8 @@ echo $line  |grep -q Title || echo $line >> ./FILE/${ID}_${FILE_NAME}
 done < make2.txt
 
 
+mkdir DSC
+
 # post telegram
 for i in `ls -tr ./FILE |grep -v "キャンセル"`
 do
@@ -48,18 +50,31 @@ CLI=`head -n1 ./FILE/$i|awk -F',' '{print $2" 様  "$3"  "$4"\\\\n"$5}'`
 
 TXT=`cat ./FILE/$i | sed -e '1d' -e '$d' -e 's/$/ \\\\n/'`
 
-DSC="
-$MEM さん \\n
-当日確認です。 \\n
-\\n
+echo "
 $DATE \\n
 $TXT \\n
 $CLI \\n
 \\n
+\\n" >> ./DSC/${ID}_${MEM}
+
+done
+
+for i in `ls ./DSC`
+do
+
+ID=`echo $i |awk -F'_' '{print $1}'`
+MEM=`echo $i |awk -F'_' '{print $2}'`
+
+TXT=`cat ./DSC/$i`
+
+DSC="
+$MEM さん \\n
+当日確認です。 \\n
+\\n
+$TXT
 ご確認よろしくお願い致します。
 "
 
-echo $i
 curl -s  -H 'Accept: application/json' -H "Content-type: application/json" -X POST "https://api.telegram.org/bot${BOT_ID}/sendMessage?chat_id=${ID}" -k -d @- <<EOF
 {
     "text": "${DSC}"
@@ -71,6 +86,7 @@ echo ""
 done
 
 rm -f ./FILE/*
+rm -f ./DSC/*
 
 cp -f make.txt make.txt.`date +%Y%m%d`
 
