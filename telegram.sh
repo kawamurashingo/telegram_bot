@@ -25,6 +25,7 @@ sed -e "s/DATE/`date +%Y-%m-%d`/" reverse.sed > make_reverse.sed
 sed -n "/`date +%Y-%m-%d`/,/^$/p" schedule.txt  | sed -f make_reverse.sed | sed -e "s:`date +%Y-%m-%d`:`date +%m/%d`:" -e "s/~.*//" > make.txt
 
 test -f make.txt.`date +%Y%m%d` && diff make.txt make.txt.`date +%Y%m%d` && exit 1
+test -f make.txt.`date +%Y%m%d` && diff make.txt make.txt.`date +%Y%m%d` | grep "<" || exit 2
 
 # make file
 test -d ./FILE/${FILE_DATE} || mkdir -p ./FILE/${FILE_DATE}
