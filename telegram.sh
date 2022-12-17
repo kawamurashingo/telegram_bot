@@ -21,7 +21,7 @@ sed -i -E 's@^.*(https?://[-A-Za-z0-9+&@#/%?=~_|!:,.;]*[-A-Za-z0-9+&@#/%=~_|]).*
 sed -e "s/DATE/`date +%Y-%m-%d`/" reverse.sed > make_reverse.sed
 sed -n "/`date +%Y-%m-%d`/,/^$/p" schedule.txt  | sed -f make_reverse.sed | sed -e "s:`date +%Y-%m-%d`:`date +%m/%d`:" -e "s/~.*//" > make.txt
 
-test -f make.txt.`date +%Y%m%d` && diff make.txt make.txt.`date +%Y%m%d` && (cp -f make.txt make.txt.`date +%Y%m%d` && exit 1)
+test -f make.txt.`date +%Y%m%d` && diff make.txt make.txt.`date +%Y%m%d` && exit 1
 test -f make.txt.`date +%Y%m%d` && diff make.txt make.txt.`date +%Y%m%d` | grep "<" || (cp -f make.txt make.txt.`date +%Y%m%d` && exit 2) 
 
 # make file
