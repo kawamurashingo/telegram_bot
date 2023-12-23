@@ -15,7 +15,7 @@ rm -rf ./FILE/`date +%Y%m%d -d'30 day ago'`*
 rm -rf ./DSC/`date +%Y%m%d -d'30 day ago'`*
 
 FILE_DATE=`date +%Y%m%d%H%M`
-OLD_FILE_DATE=`ls -ltr ./FILE/ |tail -n1|awk '{print $9}'`
+OLD_FILE_DATE=`ls -ltr ./FILE/ |tail -n1 |awk '{print $9}'`
 
 # get google calender schedule
 python3 get_events.py | sed -e 's:<html-blob>::g' -e 's:</html-blob>::g' -e "s:<br>:\n:g" > schedule.txt
