@@ -1,2 +1,2 @@
 #*/10 8-23 * * * /telegram_bot/telegram.sh >> /telegram_bot/cron.log 2>&1
-#0 0 * * * /telegram_bot/logrotate.sh
+#0 1 * * * /telegram_bot/logrotate.sh
