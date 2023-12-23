@@ -1,5 +1,5 @@
 #!/bin/bash
-LOG_FILE="/telegram_bot_next/cron.log"
+LOG_FILE="/telegram_bot/cron.log"
 MAX_SIZE=102400 # 100KB
 MAX_FILES=3
 
