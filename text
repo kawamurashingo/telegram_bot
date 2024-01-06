@@ -27,7 +27,10 @@ docker ps
 docker commit 1ac848cc1026 telegram_custom
 
 # オリジナルの方のコンテナを止める
-docker kill 1ac848cc1026
+docker stop 1ac848cc1026
+## これをやらないと、crondのプロセスが溜まり続けてdocker_customのプロセスが変な状態になる
+## OCI runtime exec failed: exec failed: unable to start container process: read init-p: connection reset by peer: unknown
+
 
 # カスタマイズしたコンテナを起動
 docker run --name telegram_custom -d telegram_custom
