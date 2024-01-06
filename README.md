@@ -30,10 +30,10 @@ sudo reboot
 
 ## GCP Compute Engine Setup with Container-Optimized OS
 
-This guide details the steps to set up a Docker container running `pannakoota/telegram_bot2` on a GCP Compute Engine instance using Container-Optimized OS.
+This guide details the steps to set up a Docker container running `pannakoota/telegram_bot` on a GCP Compute Engine instance using Container-Optimized OS.
 
 ### Step 1: Launch the VM Instance
-- Choose the `pannakoota/telegram_bot2` for the instance startup.
+- Choose the `pannakoota/telegram_bot` for the instance startup.
 - Set the reboot policy to "Do not delete".
 
 ### Step 2: Check Running Containers
@@ -59,9 +59,9 @@ This guide details the steps to set up a Docker container running `pannakoota/te
   ```
 
 ### Step 5: Edit Configurations
-- Navigate to the `telegram_bot2` directory:
+- Navigate to the `telegram_bot` directory:
   ```
-  cd telegram_bot2
+  cd telegram_bot
   ```
 - Edit the necessary configuration files (`credentials.json`, `get_events.py`, `main.sh`) as per your requirements.
 
@@ -112,10 +112,10 @@ This guide details the steps to set up a Docker container running `pannakoota/te
 # detail usage
 ```
 # docker
-docker run -i -t pannakoota/telegram_bot2 /bin/bash
+docker run -i -t pannakoota/telegram_bot /bin/bash
 or
 # git clone
-git clone https://github.com/kawamurashingo/telegram_bot2.git
+git clone https://github.com/kawamurashingo/telegram_bot.git
 
 # get telegram group
 BOT_ID="XXXXXXX"
@@ -128,7 +128,7 @@ https://api.telegram.org/bot######/getUpdates
 # edit BOT_ID in main.sh
 
 # edit {SHEET NAME} in spredsheet_client.py(default "client") and spredsheet_member.py(default "member")
-cd ./telegram_bot2
+cd ./telegram_bot
 #vi spreadsheet_client.py
 #vi spreadsheet_member.py
 
@@ -139,20 +139,20 @@ vi get_events.py
 vi credentials.json
 
 # edit env of BOT_ID
-vi ./main.sh
+vi ./telegram.sh
 
 # run
-chmod 755 ./main.sh
-sh ./main.sh
+chmod 755 ./telegram.sh
+sh ./telegram.sh
 
 # set cron
-*/10 8-23 * * * sh /home/xxxx/telegram_bot2/main.sh
+*/10 8-23 * * * sh /home/xxxx/telegram_bot/telegram.sh
 
 ```
 
 # Note
 docker image
- - <https://hub.docker.com/r/pannakoota/telegram_bot2>
+ - <https://hub.docker.com/r/pannakoota/telegram_bot>
 
 how to use google api 
  - <https://zuqqhi2.com/how-to-get-my-plans-using-google-calendar-api>
