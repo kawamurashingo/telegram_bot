@@ -86,7 +86,7 @@ This guide details the steps to set up a Docker container running `pannakoota/te
   docker run -d --name [CONTAINER ID] --restart=no pannakoota/telegram_bot
   docker stop [CONTAINER ID]
   docker inspect [CONTAINER ID] --format '{{ .HostConfig.RestartPolicy.Name }}'
-  ## 元のdockerコンテナは再起動されても起動してこない要する。起動してるとanacronのプロセスが溜まっていく。
+  ## 元のdockerコンテナは再起動されても起動してこないようにする。起動してるとanacronのプロセスが溜まっていく。
   ## OCI runtime exec failed: exec failed: unable to start container process: read init-p: connection reset by peer: unknown
   ```
 
