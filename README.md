@@ -110,6 +110,7 @@ This guide details the steps to set up a Docker container running `pannakoota/te
 - Perform a reboot test to ensure everything is set up correctly:
   ```
   sudo reboot
+  docker run -i -t telegram_custom /bin/bash
   ```
 
 
